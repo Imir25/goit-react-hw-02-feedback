@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FeedbackWidget from './FeedbackWidget';
-import './styles.css'; 
+import './styles.css';
 
-export const App = () => {
-  return (
-    <div className="app-container"> 
-      <FeedbackWidget />
-    </div>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <div className="app-container">
+        <FeedbackWidget />
+      </div>
+    );
+  }
+}
+
+export default App;
