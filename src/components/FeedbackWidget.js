@@ -5,10 +5,11 @@ import Statistics from './Statistics';
 import Notification from './Notification';
 
 class FeedbackWidget extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { good: 0, neutral: 0, bad: 0 };
-  }
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
   handleFeedback = (type) => {
     this.setState((prevState) => ({ [type]: prevState[type] + 1 }));
@@ -28,7 +29,7 @@ class FeedbackWidget extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleFeedback} />
+          <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleFeedback} />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 ? (
@@ -49,7 +50,6 @@ class FeedbackWidget extends Component {
 }
 
 export default FeedbackWidget;
-
 
 
 
